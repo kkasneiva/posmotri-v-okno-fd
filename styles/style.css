@@ -16,6 +16,9 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1,
@@ -50,12 +53,6 @@ ol {
   background-color: #D9D9D9;
 }
 
-.page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .content {
   display: grid;
   grid-template-areas:
@@ -67,7 +64,6 @@ ol {
 
 .result { 
   grid-area: result; 
-  height: 456px;
 }
 
 .result__video-container {
@@ -81,6 +77,7 @@ ol {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .search-form {
@@ -95,13 +92,12 @@ ol {
   grid-area: details; 
   display: flex;
   flex-direction: column;
-  width: 399px;
-  height: 534px;
   gap: 22px;
 }
 
 .content__list-container {
   position: relative;
+  max-height: 298px;
   height: 100%;
   width: 100%;
   overflow-y: auto;
@@ -139,7 +135,8 @@ ol {
   flex-grow: 1;
   gap: 5px;
   min-width: 0;
-  width: 196px;
+  max-width: 196px;
+  width: 100%;
 }
 
 .search-form__fieldset-title {
@@ -147,7 +144,6 @@ ol {
   font-weight: 400;
   line-height: 1;
   padding-bottom: 7.5px;
-  max-width: 196px;
 }
 
 .title {
@@ -184,7 +180,8 @@ ol {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 196px;
+  max-width: 196px;
+  width: 100%;
 }
 
 .content__video-card-description {
@@ -210,6 +207,10 @@ ol {
 
 .content__card-link:focus-visible {
   outline: 1px solid #fff;
+}
+
+.content__card-link:active {
+background-color: #545050;
 }
 
 .visually-hidden {
@@ -251,7 +252,7 @@ ol {
 .search-form__textfield {
   color:inherit;
   background-color: inherit;
-  inline-size: 225px;
+  min-width: 225px;
   border: none;
   border-block: 1px solid #fff;
   font: inherit;
@@ -311,7 +312,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   font-weight: 700;
 }
 
-button:hover {
+.button:hover {
   text-decoration: underline;
 }
 
@@ -320,24 +321,25 @@ button:hover {
   text-decoration: none;
 }
 
+.button:focus { 
+  outline: none; 
+}
+
 .button:focus-visible {
   outline: 1px solid #fff;
   outline-offset: 1px;
 }
 
-.button:focus { 
-  outline: none; 
-}
-
 .search-form__submit-button {
-  width: 194px;
-  height: 34px;
+  min-width: 194px;
+  min-height: 34px;
   align-self: flex-end;
 }
 
 .more-button {
+  min-height: 34px;
   inline-size: 100%;
-  margin-block-start: 24px;
+  margin-block-start: 30px;
 }
 
 .button,
